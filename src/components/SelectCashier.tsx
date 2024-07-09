@@ -34,6 +34,7 @@ const SelectCashier = () => {
                         return (
                             <Card
                                 key={index}
+                                data-testid={`cashier-${index}-card`}
                                 variant="outlined"
                                 component={Button}
                                 onClick={() => handleItemClick(cashier)}
