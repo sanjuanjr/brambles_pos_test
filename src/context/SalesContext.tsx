@@ -2,6 +2,8 @@ import React, { createContext, useReducer, useContext, ReactNode } from 'react';
 import sampleSales from '../data/sales_sample.json';
 import { Sale } from '../interfaces/Sale';
 import {Cashier} from '../interfaces/Cashier';
+
+
 // Define the shape of the sales state
 interface SalesState {
     sales: Sale[];

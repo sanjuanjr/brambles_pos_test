@@ -4,9 +4,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 import SelectCashier from './components/SelectCashier';
 import SalesDashboard from './components/SalesDashboard';
-import {StateDisplay} from './components/StateDisplay';
 import AddSale from './components/AddSale';
-import {SalesProvider, useSales} from './context/SalesContext';
+import {SalesProvider} from './context/SalesContext';
 import {ThemeProvider, createTheme, styled} from '@mui/material/styles';
 import {Container, Paper} from '@mui/material';
 
@@ -38,7 +37,6 @@ const App = () => {
                         </Router>
                     </StyledPaper>
                 </RootContainer>
-                <StateDisplay></StateDisplay>
             </ThemeProvider>
         </SalesProvider>
     )

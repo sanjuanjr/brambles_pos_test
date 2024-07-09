@@ -5,13 +5,9 @@ import {  Container, Box, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useSales } from '../context/SalesContext';
 import HeaderBar from './HeaderBar';
+import getCashierById from '../helpers/getCashierById';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
-// Define the type for the accumulator
-interface CashierSales {
-    [cashierId: number]: number;
-}
 
 const SalesBarChart: React.FC = () => {
     const { state, resetCashier } = useSales();
@@ -21,6 +17,7 @@ const SalesBarChart: React.FC = () => {
         resetCashier();
         navigate('/');
     }
+
     // Prepare data for the chart
     const cashierSales = state.sales.reduce<Record<number, number>>((acc, sale) => {
         acc[sale.cashierId] = (acc[sale.cashierId] || 0) + sale.saleAmount;
@@ -28,7 +25,7 @@ const SalesBarChart: React.FC = () => {
     }, {});
 
     const data = {
-        labels: Object.keys(cashierSales).map(key => `Cashier ${key}`),
+        labels: Object.keys(cashierSales).map(key => getCashierById(parseInt(key, 10))?.name),
         datasets: [
             {
                 label: 'Total Sales',
