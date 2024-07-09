@@ -1,0 +1,22 @@
+[
+  {
+    "cashierId": 1,
+    "saleAmount": 100.00
+  },
+  {
+    "cashierId": 1,
+    "saleAmount": 200.00
+  },
+  {
+    "cashierId": 2,
+    "saleAmount": 500.00
+  },
+  {
+    "cashierId": 1,
+    "saleAmount": 150.00
+  },
+  {
+    "cashierId": 3,
+    "saleAmount": 300.00
+  }
+]
