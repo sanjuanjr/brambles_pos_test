@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import SelectCashier from './components/SelectCashier';
-import SalesDashboard from './components/SalesDashboard';
-import AddSale from './components/AddSale';
+import SelectCashier from './pages/SelectCashier';
+import SalesDashboard from './pages/SalesDashboard';
+import AddSale from './pages/AddSale';
 import {SalesProvider} from './context/SalesContext';
 import {ThemeProvider, createTheme, styled} from '@mui/material/styles';
 import {Container, Paper} from '@mui/material';

@@ -3,7 +3,7 @@ import { Container, Paper, Typography, Box, TextField, Button, Table, TableBody,
 import { useNavigate } from 'react-router-dom';
 import { useSales } from '../context/SalesContext';
 import products from '../data/products_sample.json';
-import HeaderBar from './HeaderBar';
+import HeaderBar from '../components/HeaderBar';
 
 import {Product} from '../interfaces/Product';
 import {Sale} from '../interfaces/Sale'
@@ -27,8 +27,13 @@ const AddSale: React.FC = () => {
         setTotalCost(totalCost);
     }, [quantities]);
 
-    const handleQuantityChange = (sku: number, value: number) => {
-        setQuantities(prevQuantities => ({ ...prevQuantities, [sku]: value }));
+    const handleQuantityChange = (sku: number, value: string) => {
+        const parsedValue = parseInt(value, 10);
+        if (!isNaN(parsedValue) && parsedValue >= 0) {
+            setQuantities(prevQuantities => ({ ...prevQuantities, [sku]: parsedValue }));
+        } else {
+            setQuantities(prevQuantities => ({ ...prevQuantities, [sku]: 0 }));
+        }
     };
 
     const handleSubmit = () => {
@@ -70,9 +75,10 @@ const AddSale: React.FC = () => {
                                             type="number"
                                             label="Quantity"
                                             value={quantities[product.sku]}
-                                            onChange={(e) => handleQuantityChange(product.sku, parseInt(e.target.value, 10))}
+                                            // onChange={(e) => handleQuantityChange(product.sku, parseInt(e.target.value, 10))}
+                                            onChange={(e) => handleQuantityChange(product.sku, e.target.value)}
                                             sx={{ width: 80 }}
-                                            inputProps={{ min: 0 }}
+                                            inputProps={{ pattern: '[0-9]+' }}
                                         />
                                     </TableCell>
                                     <TableCell align="right">${(quantities[product.sku] * product.price).toFixed(2)}</TableCell>

@@ -5,3 +5,8 @@ import {Cashier} from '../interfaces/Cashier'
 export default function getCashierById(id: number): Cashier | undefined {
     return cashiers.find((cashier: Cashier) => cashier.id === id);
 }
+
+
+export function getCashierByName(name: string): Cashier | undefined {
+    return cashiers.find((cashier: Cashier) => cashier.name === name);
+}

@@ -7,7 +7,7 @@ import Container from '@mui/material/Container';
 import PersonIcon from '@mui/icons-material/Person';
 import { useSales } from '../context/SalesContext';
 import { Cashier } from '../interfaces/Cashier';
-import HeaderBar from './HeaderBar';
+import HeaderBar from '../components/HeaderBar';
 
 const SelectCashier = () => {
     const navigate = useNavigate();
