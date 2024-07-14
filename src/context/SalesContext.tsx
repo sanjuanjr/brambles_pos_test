@@ -49,12 +49,14 @@ const SalesContext = createContext<{
     dispatch: React.Dispatch<SalesAction>;
     setCashier: (cashier: Cashier) => void;
     resetCashier: () => void;
+    addSale: (total: number) => void;
     getSelectedCashierId: () => number
 }>({
     state: initialState,
     dispatch: () => undefined,
     setCashier: () => undefined,
     resetCashier: () => undefined,
+    addSale: () => undefined,
     getSelectedCashierId: () => 0
 });
 
@@ -74,12 +76,21 @@ export const SalesProvider = ({ children }: SalesProviderProps) => {
         dispatch({ type: 'RESET_CASHIER' });
     };
 
+    const addSale = (total: number) => {
+        const saleAmount = total;
+        const cashierId = state.selectedCashier?.id;
+        if (cashierId && total > 0) {
+            const sale: Sale = { cashierId, saleAmount };
+            dispatch({ type: 'ADD_SALE', payload: sale });
+        }
+    }
+
     const getSelectedCashierId = (): number => {
         return state.selectedCashier?.id || 0;
     }
 
     return (
-        <SalesContext.Provider value={{ state, dispatch, setCashier, resetCashier, getSelectedCashierId }}>
+        <SalesContext.Provider value={{ state, dispatch, setCashier, resetCashier, addSale, getSelectedCashierId }}>
             {children}
         </SalesContext.Provider>
     );
