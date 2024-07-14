@@ -3,7 +3,7 @@ import products_sample from '../../src/data/products_sample.json'
 describe('Select Cashier Page Test', () => {
     const navigateToAddSalePage = () => {
         cy.visit('http://localhost:3000');
-        cy.get('[data-testid="cashier-0-card"]').click();
+        cy.get('[data-testid="cashier-1-card"]').click();
         cy.contains('button', 'Add Sale').click();
     }
 

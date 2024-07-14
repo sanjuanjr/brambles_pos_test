@@ -44,7 +44,7 @@ const salesReducer = (state: SalesState, action: SalesAction): SalesState => {
     }
 };
 
-const SalesContext = createContext<{
+export const SalesContext = createContext<{
     state: SalesState;
     dispatch: React.Dispatch<SalesAction>;
     setCashier: (cashier: Cashier) => void;

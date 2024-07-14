@@ -4,7 +4,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useTheme } from '@mui/material/styles';
 import { Cashier } from '../interfaces/Cashier';
 import { useSales } from '../context/SalesContext';
-import { getCardStyles, getBoxColor } from '../helpers/cashierCardStyleHelper'; // adjust the import path as necessary
+import { getCardStyles, getBoxColor } from '../helpers/cashierCardStyleHelper';
 
 interface CashierCardProps {
     cashier: Cashier;

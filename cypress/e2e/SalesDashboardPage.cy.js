@@ -1,7 +1,7 @@
 describe('Select Cashier Page Test', () => {
     const navigateToDashboardPage = () => {
         cy.visit('http://localhost:3000');
-        cy.get('[data-testid="cashier-0-card"]').click();
+        cy.get('[data-testid="cashier-1-card"]').click();
     }
 
     it('should load Sales Dashboard Page', () => {
