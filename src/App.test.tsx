@@ -5,8 +5,8 @@ import App from './App';
 import { SalesProvider } from './context/SalesContext';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-jest.mock('react-chartjs-2', () => ({
-  Bar: () => <div>Bar</div>,
+jest.mock('@mui/x-charts/BarChart', () => ({
+  BarChart: () => <div>BarChart</div>,
 }));
 
 const renderWithProviders = (ui: React.ReactElement) => {

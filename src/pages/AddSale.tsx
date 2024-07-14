@@ -85,7 +85,7 @@ const AddSale: React.FC = () => {
                 <Typography variant="h6">Total Cost: ${totalCost.toFixed(2)}</Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: 2 }}>
-                <Button variant="contained" color="primary" onClick={handleSubmit}>
+                <Button variant="contained" color="primary" onClick={handleSubmit} disabled={totalCost <= 0}>
                     Submit Sale
                 </Button>
             </Box>
